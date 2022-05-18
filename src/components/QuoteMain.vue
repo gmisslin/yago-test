@@ -21,7 +21,6 @@
                                     <v-card-title>Pro Indemnity <v-icon color="black" dark >mdi-arrow-right</v-icon> {{proIndemnityAmount}}€</v-card-title>
                                     <v-card-text>
                                         <v-row class="d-flex justify-center">
-                                            <!-- <input type="checkbox"  id="checkbox"  :value="proIndemnityAmount" v-model="form.proIndemnity" > -->
                                             <v-checkbox
                                             v-model="form.proIndemnity"
                                             id="a"
