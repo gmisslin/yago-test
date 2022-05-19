@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint \"./**/*.{vue,js}\"",
+    "lint:fix": "eslint \"./**/*.{vue,js}\" --fix"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -20,7 +21,10 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-vue": "^8.0.3",
+    "onchange": "^7.1.0",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "^2.4.8",
