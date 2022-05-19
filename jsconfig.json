@@ -1,19 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "baseUrl": "./",
-    "moduleResolution": "node",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es2018",
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": ["./*"]
+        }
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+    "include": [
+        "src/**/*",
+        "tests/**/*",
+        "node_modules/cypress",
+        "tests/e2e/**/*.js"
+    ],
+    "exclude": [
+        "node_modules"
     ]
-  }
 }
