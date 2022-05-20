@@ -14,7 +14,7 @@
                   <v-card-title
                     >Pro Indemnity
                     <v-icon color="black" dark>mdi-arrow-right</v-icon>
-                    {{ proIndemnityAmount }}€</v-card-title
+                    {{ formatNumber(proIndemnityAmount) }}€</v-card-title
                   >
                   <v-card-text>
                     <v-row class="d-flex justify-center">
@@ -31,7 +31,7 @@
                   <v-card-title
                     >Public Liability
                     <v-icon color="black" dark>mdi-arrow-right</v-icon>
-                    {{ publicLiabilityAmount }}€</v-card-title
+                    {{ formatNumber(publicLiabilityAmount) }}€</v-card-title
                   >
                   <v-card-text>
                     <v-row class="d-flex justify-center">
@@ -82,7 +82,7 @@
                           <v-col cols="8" class="d-flex align-self-center">
                             Entrusted Object
                             <v-icon color="black" dark>mdi-arrow-right</v-icon>
-                            {{ entrustedObjectsAmount }}€
+                            {{ formatNumber(entrustedObjectsAmount) }}€
                           </v-col>
                           <v-col cols="2">
                             <v-checkbox
@@ -124,7 +124,7 @@
                           <v-col cols="8" class="d-flex align-self-center">
                             Legal Expense
                             <v-icon color="black" dark>mdi-arrow-right</v-icon>
-                            {{ legalExpensesAmount }}€
+                            {{ formatNumber(legalExpensesAmount) }}€
                           </v-col>
                           <v-col cols="2">
                             <v-checkbox
@@ -162,7 +162,7 @@
                           <v-col cols="8" class="d-flex align-self-center">
                             After Delivery
                             <v-icon color="black" dark>mdi-arrow-right</v-icon>
-                            {{ afterDeliveryAmount }}€
+                            {{ formatNumber(afterDeliveryAmount) }}€
                           </v-col>
                           <v-col cols="2">
                             <v-checkbox
@@ -237,6 +237,11 @@ export default {
       },
     },
   }),
+  methods: {
+    formatNumber:function(number){
+      return Intl.NumberFormat("fr-FR").format(number);
+    }
+  },
   computed: {
     total: function () {
       let total = 0;
@@ -246,7 +251,7 @@ export default {
             this.form[prop] && !!this.form[prop] && this[prop] ? this[prop] : 0;
         }
       }
-      return total;
+      return this.formatNumber(total);
     },
     proIndemnityAmount: function () {
       return this.quoteParameters.grossPremiums.professionalIndemnity;
